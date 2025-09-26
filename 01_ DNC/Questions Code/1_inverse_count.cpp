@@ -3,8 +3,10 @@
 
 using namespace std;
 
-int mergeFunc(vector<int> &vec, int start, int mid, int end, int count)
+int mergeFunc(vector<int> &vec, int start, int mid, int end)
 {
+    int count = 0;
+
     int i = start, j = mid + 1;
     vector<int> temp;
     while (i <= mid && j <= end)
@@ -39,16 +41,17 @@ int mergeFunc(vector<int> &vec, int start, int mid, int end, int count)
     return count;
 }
 
-int mergeSort(vector<int> &vec, int start, int end, int &count)
+int mergeSort(vector<int> &vec, int start, int end)
 {
+    int count = 0;
     if (start >= end)
     {
         return 0;
     }
     int mid = start + (end - start) / 2;
-    count += mergeSort(vec, start, mid, count);
-    count += mergeSort(vec, mid + 1, end, count);
-    count += mergeFunc(vec, start, mid, end, count);
+    count += mergeSort(vec, start, mid);
+    count += mergeSort(vec, mid + 1, end);
+    count += mergeFunc(vec, start, mid, end);
 
     return count;
 }
@@ -58,7 +61,7 @@ int main()
     vector<int> vec = {4, 5, 1, 2};
 
     int count = 0;
-    int ans = mergeSort(vec, 0, 3, count);
+    int ans = mergeSort(vec, 0, 3);
     cout << ans;
     return 0;
 }
