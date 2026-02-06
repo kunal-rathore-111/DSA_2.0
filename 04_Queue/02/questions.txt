@@ -1,0 +1,4 @@
+1) Reverse a queue
+2) Reverse first k elements
+3) Interleave the first Half and second Half
+4) First negative in every window of size k
