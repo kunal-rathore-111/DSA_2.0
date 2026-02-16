@@ -1,0 +1,1 @@
+1) Count leaf nodes of a tree(gfg basic hint- use traversal and check left right of node and increase count)
